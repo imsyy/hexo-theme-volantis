@@ -16,12 +16,12 @@ info:
 navbar:
   visiable: auto # always, auto
   logo: # choose [img] or [icon + title]
-    img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png
-    icon:
-    title:
+    img: 
+    icon: fad fa-blog
+    title:  無名小栈
   menu:
-    - name: 博客
-      icon: fas fa-rss
+    - name: 主页
+      icon: fad fa-house
       url: /
     - name: 分类
       icon: fas fa-folder-open
@@ -58,27 +58,27 @@ cover:
   features:
     - name: 文档
       icon: #
-      img: https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg
+      img: #https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg
       url: /v4/getting-started/
     - name: 帮助
       icon: #
-      img: https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f516.svg
+      img: #https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f516.svg
       url: faqs/
     - name: 示例
       icon: #
-      img: https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f396.svg
+      img: #https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f396.svg
       url: /examples/
     - name: 社区
       icon: #
-      img: https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f389.svg
+      img: #https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f389.svg
       url: /contributors/
     - name: 博客
       icon: #
-      img: https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg
+      img: #https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg
       url: /archives/
     - name: 源码
       icon: #
-      img: https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f9ec.svg
+      img: #https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f9ec.svg
       url: https://github.com/volantis-x/hexo-theme-volantis/
 ############################### Cover ############################### > end
 
@@ -198,15 +198,15 @@ article:
 
 ############################### Comments ############################### > start
 comments:
-  title: <i class='fas fa-comments'></i> 评论
-  subtitle:
+  title: <i class='fad fa-comments'></i> <b><font style="font-size:17px">评论</font></b>
+  subtitle: <br>
   service: valine # valine, minivaline, disqus, gitalk, vssue, livere, isso, hashover
   # Valine
   # https://valine.js.org/
   valine:
-    appId: # your appId
-    appKey: # your appKey
-    # js: https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js
+    appId: vMMo1b0DLngbI8pgfW8ydqPu-gzGzoHsz # your appId
+    appKey: qjK46dtNgcjdkgRzq2xv5cKp # your appKey
+    js: https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js
     path: # 全局评论地址
     placeholder: 快来评论吧~  # 评论占位提示
     meta: nick,mail,link # valine comment header info
@@ -217,7 +217,10 @@ comments:
     lang: zh-cn
     highlight: true
     visitor: true
-    mathJax: false
+    mathJax: true
+    master: 57a8c17b6cdeb64a14f2e7fc497f42a6  //博主邮箱md5
+    tagMeta: ['博主','小伙伴','访客']  
+    friends: 
   # MiniValine
   # https://github.com/MiniValine/MiniValine
   minivaline:
@@ -321,8 +324,8 @@ sidebar:
       shape: rectangle # circle, rectangle
       url: /about/
       title:
-      subtitle:
-      jinrishici: true # Poetry Today. You can set a string, and it will be displayed when loading fails.
+      subtitle: <i class="fad fa-map-marker-alt"></i> HN, China
+      jinrishici: false # Poetry Today. You can set a string, and it will be displayed when loading fails.
       social:
         - icon: fas fa-rss
           url: /atom.xml
@@ -392,8 +395,8 @@ sidebar:
           unit: '篇'
         runtime:
           enable: true
-          data: '2020/01/01'    # 填写建站日期
-          text: '已运行时间：'
+          data: '2020/04/23'    # 填写建站日期
+          text: '勉强运行：'
           unit: '天'
         wordcount:
           enable: true
@@ -422,7 +425,7 @@ tag_plugins:
   note: # style for default note:
     icon: '\f054'
     color: ''
-    iconfont: 'Font Awesome 5 Free'
+    iconfont: 'Font Awesome 5 Pro'
   # {% checkbox %}
   checkbox:
     interactive: true # enable interactive for user
@@ -482,7 +485,8 @@ plugins:
   # jquery
   jquery: https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js
   # fontawesome
-  fontawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css
+  fontawesome: https://cdn.jsdelivr.net/gh/volantis-x/cdn-fontawesome-pro@master/css/all.min.css
+  #fontawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css
   # fancybox
   fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
 
@@ -650,7 +654,7 @@ plugins:
 ############################### Rightmenu ############################### > start
 # 自定义右键菜单
 rightmenu:
-  enable: #true
+  enable: true
   # hr: 分割线, music: 音乐控制器
   layout: [home, help, examples, contributors, hr, source_docs, source_theme, hr, print, hr, music]
   # 可选功能项
@@ -865,17 +869,17 @@ custom_css:
       weight: normal
       style: normal
     bodyfont:
-      fontfamily: 'UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
+      fontfamily: '"Varela Round", UbuntuMono, "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
       name: 'UbuntuMono'
       url: https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf
       weight: normal
       style: normal
     codefont:
-      fontfamily: 'Menlo, UbuntuMono, Monaco'
-      # name: 'Monaco'
-      # url: https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/Monaco/Monaco.ttf
-      # weight: normal
-      # style: normal
+      fontfamily: 'Cascadia Code'
+      name: 'Cascadia Code'
+      url: https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/CascadiaCode/Cascadia.ttf
+      weight: normal
+      style: normal
 ############################### Custom css ############################### > end
 
 
