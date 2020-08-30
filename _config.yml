@@ -1,7 +1,7 @@
 ############################### Volantis ###############################
 info:
   theme_name: Volantis # This is theme's name.
-  theme_version: '4.0.0-rc.1' # This is theme's version.
+  theme_version: '4.0.0-rc.2' # This is theme's version.
   theme_docs: https://volantis.js.org/ # This is theme's URL.
   theme_repo: https://github.com/volantis-x/hexo-theme-volantis
   cdn:
@@ -850,17 +850,16 @@ custom_css:
     button: 4px
   fontsize:
     root: 16px
-    h1: 1.625rem
+    h1: 1.5rem # 不推荐用在文章中
     h2: 1.5rem
-    h3: 1.25rem
+    h3: 1.375rem
     h4: 1.125rem
     h5: 1rem
     h6: 1rem
-    body: .9375rem
     list: .9375rem
     meta: .875rem
     code: .8125rem
-    footnote: .75rem
+    footnote: .78125rem
   fontfamily:
     logofont:
       fontfamily: '"Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
