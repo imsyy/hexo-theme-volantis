@@ -1,7 +1,7 @@
 ############################### Volantis ###############################
 info:
   theme_name: Volantis # This is theme's name.
-  theme_version: '4.0.0-rc.2' # This is theme's version.
+  theme_version: '4.0.0-rc.1' # This is theme's version.
   theme_docs: https://volantis.js.org/ # This is theme's URL.
   theme_repo: https://github.com/volantis-x/hexo-theme-volantis
   cdn:
@@ -20,24 +20,26 @@ navbar:
     icon: fad fa-blog
     title:  無名小栈
   menu:
-    - name: 主页
-      icon: fad fa-house
-      url: /
-    - name: 分类
-      icon: fas fa-folder-open
-      url: categories/
-    - name: 标签
-      icon: fas fa-tags
-      url: tags/
-    - name: 归档
-      icon: fas fa-archive
-      url: archives/
+    - name: 导航
+      icon: fad fa-books
+      rows:
+        - name: 分类
+          icon: fad fa-folder-open
+          url: categories/
+        - name: 标签
+          icon: fad fa-hashtag
+          url: tags/
+        - name: 归档
+          icon: fad fa-list
+          url: archives/
     - name: 友链
       icon: fas fa-link
       url: friends/
     - name: 关于
       icon: fas fa-info-circle
       url: about/
+    - name: 音乐
+      icon: fad fa-compact-disc
   search: Search...   # Search bar placeholder
 ############################### Navigation Bar ############################### > end
 
@@ -51,15 +53,15 @@ cover:
     archive: true
     others: false # can be written in front-matter 'cover: true'
   background: https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg
-  logo: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-Cover@3x.png
-  title: 'Volantis'
-  subtitle: ''
+  logo: img/logo.png
+  title: #'無名小栈'
+  subtitle: #'BLOG.IMSYY.TOP'
   search: A Wonderful Theme for Hexo # search bar placeholder
   features:
-    - name: 文档
+    - name: 首页
       icon: #
       img: #https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg
-      url: /v4/getting-started/
+      url: /
     - name: 帮助
       icon: #
       img: #https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f516.svg
@@ -310,7 +312,7 @@ comments:
 ############################### Sidebar ############################### > start
 sidebar:
   # 主页、分类、归档等独立页面
-  for_page: [blogger, category, tagcloud, qrcode]
+  for_page: [blogger, repos, category, tagcloud, qrcode, webinfo]
   # layout: docs/post 这类文章页面
   for_post: [toc]
   # 侧边栏组件库
@@ -320,7 +322,7 @@ sidebar:
     blogger:
       class: blogger
       display: [desktop, mobile] # [desktop, mobile]
-      avatar: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png
+      avatar: img/me.png
       shape: rectangle # circle, rectangle
       url: /about/
       title:
@@ -386,8 +388,8 @@ sidebar:
       class: webinfo
       display: [desktop]
       header:
-        icon: fas fa-award
-        title: 站点信息
+        icon: fad fa-chart-line
+        title: 站点概览
       type:
         article:
           enable: true
@@ -415,6 +417,16 @@ sidebar:
           friendlyShow: true    # 更友好的时间显示
           text: '最后活动时间：'
           unit: '日'
+    # ---------------------------------------
+    # repos
+    repos:
+      class: text
+      display: [desktop, mobile] # [desktop, mobile]
+      header:
+        icon: fad fa-bullhorn
+        title: 公告
+      content:
+        - '本站替换了右键菜单，按住 <b>Ctrl</b> 键可临时恢复原菜单哦'
 ############################### Sidebar ############################### > end
 
 
@@ -439,7 +451,7 @@ tag_plugins:
 ############################### Site Footer ############################### > start
 site_footer:
   # layout of footer: [aplayer, social, license, info, copyright]
-  layout: [aplayer, social, license, analytics, info, copyright]
+  layout: [social, license, analytics, info, copyright]
   social:
     - icon: #fas fa-rss
       img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/020-rss.svg
@@ -537,7 +549,7 @@ plugins:
 
   # npm i hexo-wordcount
   wordcount:
-    enable: #true
+    enable: true
 
   ######## Plugins for ...
   # Button Ripple Effect
@@ -590,21 +602,21 @@ plugins:
   # APlayer is only available in mainland China.
   # APlayer config: https://github.com/metowolf/MetingJS
   aplayer:
-    enable: #true
+    enable: true
     js:
       - https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js
       - https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js
     # Required
     server: netease   # netease, tencent, kugou, xiami, baidu
     type: playlist    # song, playlist, album, search, artist
-    id: 3175833810    # song id / playlist id / album id / search keyword
+    id: 5191696691    # song id / playlist id / album id / search keyword
     # Optional
     fixed: false      # enable fixed mode
-    theme: '#1BCDFC'  # main color
+    theme: '#44D7B6'  # main color
     autoplay: false   # audio autoplay
-    order: list       # player play order, values: 'list', 'random'
+    order: random       # player play order, values: 'list', 'random'
     loop: all         # player loop play, values: 'all', 'one', 'none'
-    volume: 0.7       # default volume, notice that player will remember user setting, default volume will not work after user set volume themselves
+    volume: 0.5       # default volume, notice that player will remember user setting, default volume will not work after user set volume themselves
     list_max_height: 320px # list max height
     list_folded: true
   pjax:
@@ -638,7 +650,7 @@ plugins:
   # https://darkmodejs.learn.uno
   # 暗黑模式样式：https://github.com/volantis-x/hexo-theme-volantis/blob/master/source/css/_third-party/darkmode.styl
   darkmodejs:
-    enable: #true
+    enable: true
     js: https://cdn.jsdelivr.net/npm/darkmode-js@1.5/lib/darkmode-js.min.js
     button: # button 使用默认或自行开发
       enable: true
@@ -716,11 +728,11 @@ color_scheme:
     # 主题色
     theme: '#44D7B6'
     # 链接色
-    link: '#2196f3'
+    link: '#A6A6A6'
     # 按钮色
     button: '#44D7B6'
     # 鼠标放到交互元素上时的色
-    hover: '#ff5722'
+    hover: '#44D7B6'
     # 主题色块内部的文字颜色
     inner: '#fff'
     # 选中区域文字的背景颜色
@@ -850,16 +862,17 @@ custom_css:
     button: 4px
   fontsize:
     root: 16px
-    h1: 1.5rem # 不推荐用在文章中
+    h1: 1.625rem
     h2: 1.5rem
-    h3: 1.375rem
+    h3: 1.25rem
     h4: 1.125rem
     h5: 1rem
     h6: 1rem
+    body: .9375rem
     list: .9375rem
     meta: .875rem
     code: .8125rem
-    footnote: .78125rem
+    footnote: .75rem
   fontfamily:
     logofont:
       fontfamily: '"Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
@@ -884,10 +897,10 @@ custom_css:
 
 ############################### Analytics ############################### > start
 analytics:
-  busuanzi: #https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js
+  busuanzi: https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js
   leancloud: # 请使用自己的 id & key 以防止数据丢失
-    app_id: u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI
-    app_key: jfHtEKVE24j0IVCGHbvuFClp
+    app_id: EicBTa2dvPf2FHqOmibqESDn-gzGzoHsz
+    app_key: YLf8sgtz6gx1RNeNymEk1FjD
     custom_api_server: # 国际版一般不需要写，除非自定义了 API Server
 ############################### Analytics ############################### > end
 
