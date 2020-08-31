@@ -72,7 +72,7 @@ pre
 .highlight
   position: relative
   width: 100%
-  margin: $gap-row 0
+  margin: $gap-p 0
   display: block
   background: var(--color-block)
   font-size: $fontsize-code
@@ -140,6 +140,8 @@ pre
       margin: 0
       padding: 0
       border: none
+      .code:before
+        display: none
 
     .code
       padding: $gap * 1.25 $gap
