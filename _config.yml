@@ -20,7 +20,7 @@ navbar:
     icon: fad fa-blog
     title:  無名小栈
   menu:
-    - name: 导航
+    - name: 索引
       icon: fad fa-books
       rows:
         - name: 分类
@@ -47,41 +47,41 @@ navbar:
 ############################### Cover ############################### > start
 cover:
   height_scheme: half # full, half
-  layout_scheme: dock # blank (留白), search (搜索), dock (坞), featured (精选), focus (焦点)
+  layout_scheme: featured # blank (留白), search (搜索), dock (坞), featured (精选), focus (焦点)
   display:
     home: true
     archive: true
-    others: false # can be written in front-matter 'cover: true'
+    others: true # can be written in front-matter 'cover: true'
   background: https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg
   logo: img/logo.png
   title: #'無名小栈'
-  subtitle: #'BLOG.IMSYY.TOP'
+  subtitle: #'<br>'
   search: A Wonderful Theme for Hexo # search bar placeholder
   features:
     - name: 首页
-      icon: #
+      icon: fad fa-house
       img: #https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg
       url: /
-    - name: 帮助
-      icon: #
+    - name: 分类
+      icon: fad fa-folders
       img: #https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f516.svg
-      url: faqs/
-    - name: 示例
-      icon: #
+      url: /categories/
+    - name: 标签
+      icon: fad fa-tags
       img: #https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f396.svg
-      url: /examples/
-    - name: 社区
-      icon: #
+      url: /tags/
+    - name: 归档
+      icon: fad fa-archive
       img: #https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f389.svg
-      url: /contributors/
-    - name: 博客
-      icon: #
-      img: #https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg
       url: /archives/
-    - name: 源码
-      icon: #
+    - name: 相册
+      icon: fad fa-images
+      img: #https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg
+      url: /image/
+    - name: 关于
+      icon: fad fa-address-card
       img: #https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f9ec.svg
-      url: https://github.com/volantis-x/hexo-theme-volantis/
+      url: /about/
 ############################### Cover ############################### > end
 
 
@@ -105,7 +105,7 @@ article:
   body:
     # 文章顶部信息
     # 从 meta_library 中取
-    top_meta: [author, category, date, counter]
+    top_meta: [author, category, updated, counter, wordcount]
     # ----------------
     # 文章页脚组件
     footer_widget:
@@ -123,9 +123,9 @@ article:
       # 相关文章，需要安装插件 (for layout: post)
       # npm i hexo-related-popular-posts
       related_posts:
-        enable: false
+        enable: true
         title: 相关文章
-        icon: fas fa-bookmark
+        icon: fad fa-bookmark
         max_count: 5
         # 设为空则不使用文章头图
         placeholder_img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg
@@ -133,9 +133,9 @@ article:
       # 版权声明组件 (for layout: post)
       copyright:
         enable: true
-        permalink: '本文永久链接是：'
+        permalink: '本文的永久链接为：'
         content:
-          - '博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议'
+          - '本博客所有文章除特别声明外，均采用 CC BY-NC-SA 4.0 许可协议。转载请注明出处！'
           - permalink
       # ----------------
       # 打赏组件 (for layout: post)
@@ -146,42 +146,42 @@ article:
           - https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png
     # 文章底部信息
     # 从 meta_library 中取
-    bottom_meta: [updated, tags, share]
+    bottom_meta: [date, tags, share]
     # meta library
     meta_library:
       # 默认文章作者（可在 front-matter 中覆盖）
       author:
-        avatar:
-        name: 请设置文章作者
+        avatar: https://tc2.syy0322.club/2020/06/22/9ffbe4e112bff.png
+        name: 無名
         url: /
       # 文章创建日期
       date:
-        icon: fas fa-calendar-alt
+        icon: fad fa-calendar-alt
         title: '发布于：'
         format: 'll' # 日期格式 http://momentjs.com/docs/
       # 文章更新日期
       updated:
-        icon: fas fa-edit
+        icon: fad fa-edit
         title: '更新于：'
         format: 'll' # 日期格式 http://momentjs.com/docs/
       # 文章分类
       category:
-        icon: fas fa-folder-open
+        icon: fad fa-folder-open
       # 文章浏览计数
       counter:
-        icon: fas fa-eye
+        icon: fad fa-eye
         unit: '次浏览'
       # 文章评论数量：只支持 valine
       valinecount:
-        icon: fas fa-comment-dots
-        desc: '' # 条评论
+        icon: fad fa-comment-dots
+        desc: '条评论' # 条评论
       # 文章字数和阅读时长
       wordcount:
-        icon_wordcount: fas fa-keyboard
-        icon_duration: fas fa-hourglass-half
+        icon_wordcount: fad fa-keyboard
+        icon_duration: fad fa-hourglass-half
       # 文章标签
       tags:
-        icon: fas fa-hashtag
+        icon: fad fa-hashtag
       # 分享
       share:
         - id: qq
@@ -190,10 +190,10 @@ article:
           img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png
         - id: weibo
           img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png
-        - id: # qrcode # 当id为qrcode时需要安装插件  npm i hexo-helper-qrcode
-          img: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png
-        - id: # telegram
-          img: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png
+        - id: qrcode # 当id为qrcode时需要安装插件  npm i hexo-helper-qrcode
+          img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png
+        - id: telegram
+          img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png
 
 ############################### Article Layout ############################### > end
 
@@ -312,7 +312,7 @@ comments:
 ############################### Sidebar ############################### > start
 sidebar:
   # 主页、分类、归档等独立页面
-  for_page: [blogger, repos, category, tagcloud, qrcode, webinfo]
+  for_page: [repos, category, tagcloud, qrcode, webinfo]
   # layout: docs/post 这类文章页面
   for_post: [toc]
   # 侧边栏组件库
@@ -402,20 +402,20 @@ sidebar:
           unit: '天'
         wordcount:
           enable: true
-          text: '本站总字数：'   # 需要启用 wordcount
+          text: '文章字数：'   # 需要启用 wordcount
           unit: '字'
         siteuv:
-          enable: true
-          text: '本站访客数：'   # 需要启用 busuanzi
+          enable: false
+          text: '来访人数：'   # 需要启用 busuanzi
           unit: '人'
         sitepv:
-          enable: true
-          text: '本站总访问量：' # 需要启用 busuanzi
+          enable: false
+          text: '总访问量：' # 需要启用 busuanzi
           unit: '次'
         lastupd:
           enable: true
           friendlyShow: true    # 更友好的时间显示
-          text: '最后活动时间：'
+          text: '最后活动：'
           unit: '日'
     # ---------------------------------------
     # repos
@@ -426,7 +426,8 @@ sidebar:
         icon: fad fa-bullhorn
         title: 公告
       content:
-        - '本站替换了右键菜单，按住 <b>Ctrl</b> 键可临时恢复原菜单哦'
+        - '本站默认替换了右键菜单，唤醒原系统菜单 <b>Ctrl</b> + <b>右键</b>'
+        - '新增一个凑合能用的暗黑模式，为夜间阅读的朋友提供最佳环境'
 ############################### Sidebar ############################### > end
 
 
@@ -451,34 +452,18 @@ tag_plugins:
 ############################### Site Footer ############################### > start
 site_footer:
   # layout of footer: [aplayer, social, license, info, copyright]
-  layout: [social, license, analytics, info, copyright]
+  layout: [social, copyright, br, license, analytics]
   social:
-    - icon: #fas fa-rss
-      img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/020-rss.svg
-      url: atom.xml
-    - icon: #fas fa-envelope
-      url: mailto:me@xxx.com
-    - icon: #fab fa-github
-      img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/029-github.svg
-      url: https://github.com/volantis-x/
-    - img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/010-facebook.svg
+    - icon: fad fa-rss
+      url: https://blog.imsyy.top/atom.xml
+    - icon: fad fa-envelope-open-text
+      url: mailto:one@imsyy.top
+    - icon: fad fa-code-branch
+      url: https://github.com/syy0322/ 
+    - icon: fab fa-twitter
       url: /
-    - img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/018-twitter.svg
+    - icon: fab fa-telegram-plane
       url: /
-    - img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/045-telegram.svg
-      url: /
-    - img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/006-youtube.svg
-      url: /
-    - icon: # fas fa-headphones-alt
-      url: #
-    - img: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/qq.png
-      url: #
-    - img: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/qzone.png
-      url: #
-    - img: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/weibo.png
-      url: #
-    - avatar: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/wechat.png
-      url: #
   # site source
   source: https://github.com/volantis-x/volantis-docs/
   # analytics using leancloud
@@ -486,9 +471,11 @@ site_footer:
     <span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
     <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
   # site copyright
-  copyright: '[Copyright © 2017-2020 XXX](/)'
+  copyright: '[Copyright © 2020 By 無名](https://imsyy.top/) | [豫ICP备 20013231号-2](http://beian.miit.gov.cn/)'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
-  br: '<br>'
+  br: 'CDN BY [<b>又拍云</b>](https://www.upyun.com/) && [<b>jsDelivr</b>](https://www.jsdelivr.com/) | HOST BY [<b>Coding</b>](https://coding.net/) && [<b>Github</b>](https://github.com/)'
+  # ICP备案
+  icp: '[豫ICP备 20013231号-2](http://beian.miit.gov.cn/)'
 ############################### Site Footer ############################### > end
 
 ############################### Plugins ############################### > start
@@ -835,9 +822,9 @@ custom_css:
     width: auto # auto, max
     effect: [shadow, blur] # [shadow, floatable, blur]
   sidebar:
-    effect: [shadow] # [shadow, floatable, blur]
+    effect: [shadow, floatable] # [shadow, floatable, blur]
   body:
-    effect: [shadow] # [shadow, floatable, blur]
+    effect: [shadow, floatable] # [shadow, floatable, blur]
     highlight:
       language: true # show language of codeblock
       copy_btn: true
@@ -849,9 +836,9 @@ custom_css:
       h4: left
       p: justify
   gap:
-    h2: 48px # Spacing above H2 (only px unit)
-    h3: 24px # Spacing above H3 (only px unit)
-    h4: 16px # Spacing above H4 (only px unit)
+    h2: 0px # Spacing above H2 (only px unit)
+    h3: 0px # Spacing above H3 (only px unit)
+    h4: 0px # Spacing above H4 (only px unit)
     paragraph: 1rem # Paragraph spacing between paragraphs
     row: .5rem # Paragraph spacing between other elements
     line_height: 1.65 # normal, 1.5, 1.75, 2 ...
