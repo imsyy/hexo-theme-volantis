@@ -63,9 +63,19 @@
       <% } %>
     <% } %>
   </div>
-  <% if (showCat || showReadmore) { %>
+  <% if (showCat || showReadmore || theme.article.preview.author) { %>
     <div class='meta-v3' line_style='<%- theme.article.preview.line_style %>'>
       <div>
+        <% if (theme.article.preview.author) { %>
+          <%
+          let authorId = post.author || 'default';
+          let author = theme.article.author.default;
+          if (authorId in theme.article.author) {
+            author = theme.article.author[authorId];
+          }
+          %>
+          <a class='avatar' href='<%- author.url %>'><img src='<%- author.avatar %>'></a>
+        <% } %>
         <time><%= date(post.date, config.date_format) %></time>
         <% if (post.categories && post.categories.length > 0) { %>
           <span class="dot"></span>
@@ -78,8 +88,8 @@
       </div>
       <% if (showReadmore) { %>
         <div>
-            <a class='readmore' href='<%- url_for(post.link || post.path) %>'>
-            <%- __('post.readmore') %>
+          <a class='readmore' href='<%- url_for(post.link || post.path) %>'>
+            <%- post.link ? __('post.readoriginal') : __('post.readmore') %>
           </a>
         </div>
       <% } %>

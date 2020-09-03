@@ -97,6 +97,8 @@ article:
     auto_excerpt: true # false, true
     # show split line or not
     line_style: solid # hidden, solid, dashed, dotted
+    # show author
+    author: false # true, false
     # show readmore button
     readmore: auto # auto, always
   # 文章详情页面的文章卡片本体布局方案
@@ -192,7 +194,12 @@ article:
           img: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png
         - id: # telegram
           img: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png
-
+  author:
+    default:
+      name: Volantis Team
+      avatar: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png
+      url: https://github.com/volantis-x/
+    # Add author here:
 ############################### Article Layout ############################### > end
 
 
@@ -526,7 +533,7 @@ plugins:
 
   # Codeblock Copy Button
   clipboard:
-    enable: true
+    enable: #true
     js: https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js
 
   ######## Plugins for SEO:
