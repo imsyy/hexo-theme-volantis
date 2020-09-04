@@ -44,7 +44,7 @@ navbar:
 
 ############################### Cover ############################### > start
 cover:
-  height_scheme: half # full, half
+  height_scheme: full # full, half
   layout_scheme: dock # blank (留白), search (搜索), dock (坞), featured (精选), focus (焦点)
   display:
     home: true
@@ -194,12 +194,6 @@ article:
           img: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png
         - id: # telegram
           img: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png
-  author:
-    default:
-      name: Volantis Team
-      avatar: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png
-      url: https://github.com/volantis-x/
-    # Add author here:
 ############################### Article Layout ############################### > end
 
 
@@ -446,31 +440,13 @@ site_footer:
   layout: [aplayer, social, license, analytics, info, copyright]
   social:
     - icon: #fas fa-rss
-      img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/020-rss.svg
-      url: atom.xml
-    - icon: #fas fa-envelope
-      url: mailto:me@xxx.com
-    - icon: #fab fa-github
-      img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/029-github.svg
-      url: https://github.com/volantis-x/
-    - img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/010-facebook.svg
-      url: /
-    - img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/018-twitter.svg
-      url: /
-    - img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/045-telegram.svg
-      url: /
-    - img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/006-youtube.svg
-      url: /
-    - icon: # fas fa-headphones-alt
-      url: #
-    - img: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/qq.png
-      url: #
-    - img: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/qzone.png
-      url: #
-    - img: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/weibo.png
-      url: #
-    - avatar: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/wechat.png
-      url: #
+      url:
+    # or
+    - img:
+      url:
+    # or
+    - avatar:
+      url:
   # site source
   source: https://github.com/volantis-x/volantis-docs/
   # analytics using leancloud
@@ -636,7 +612,15 @@ plugins:
     # color1: #说说背景颜色1&按钮颜色1
     # color2: #说说背景颜色2&按钮颜色2
     # color3: #说说字体颜色
-  ##################################
+
+  # 从 issues 加载动态数据
+  # {% issues sites/timeline/friends | api=xxx | group=xxx %}
+  # 例如：
+  # {% issues sites | api=https://api.github.com/repos/volantis-x/examples/issues?sort=updated&state=open&page=1&per_page=100 | group=latest,v6,v5,v4,v3,v2,v1,v0 %}
+  issues:
+    enable: #true
+    js:
+
   # 暗黑模式 darkmodejs
   # https://darkmodejs.learn.uno
   # 暗黑模式样式：https://github.com/volantis-x/hexo-theme-volantis/blob/master/source/css/_third-party/darkmode.styl
@@ -695,7 +679,7 @@ rightmenu:
 search:
   enable: true
   service: hexo  # hexo, google, algolia, azure, baidu
-  # js: https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3.0/js/search.js
+  js:
   google:
     apiKey:
     engineId:

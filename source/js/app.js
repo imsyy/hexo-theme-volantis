@@ -347,41 +347,6 @@ var customSearch;
 		scrollListener();
 	}
 
-	// 设置搜索服务
-	function setSearchService() {
-		var SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/"
-		if (SEARCH_SERVICE === 'google') {
-			customSearch = new GoogleCustomSearch({
-				apiKey: GOOGLE_CUSTOM_SEARCH_API_KEY,
-				engineId: GOOGLE_CUSTOM_SEARCH_ENGINE_ID,
-				imagePath: SearchServiceimagePath
-			});
-		} else if (SEARCH_SERVICE === 'algolia') {
-			customSearch = new AlgoliaSearch({
-				apiKey: ALGOLIA_API_KEY,
-				appId: ALGOLIA_APP_ID,
-				indexName: ALGOLIA_INDEX_NAME,
-				imagePath: SearchServiceimagePath
-			});
-		} else if (SEARCH_SERVICE === 'hexo') {
-			customSearch = new HexoSearch({
-				imagePath: SearchServiceimagePath
-			});
-		} else if (SEARCH_SERVICE === 'azure') {
-			customSearch = new AzureSearch({
-				serviceName: AZURE_SERVICE_NAME,
-				indexName: AZURE_INDEX_NAME,
-				queryKey: AZURE_QUERY_KEY,
-				imagePath: SearchServiceimagePath
-			});
-		} else if (SEARCH_SERVICE === 'baidu') {
-			customSearch = new BaiduSearch({
-				apiId: BAIDU_API_ID,
-				imagePath: SearchServiceimagePath
-			});
-		}
-	}
-
 	// 设置 tabs 标签
 	function setTabs() {
 		const $tabs = $('.tabs');
@@ -411,7 +376,6 @@ var customSearch;
 		setHeaderSearch();
 		setTocToggle();
 		setScrollAnchor();
-		setSearchService();
 		setTabs();
 
 		// 全屏封面底部箭头
