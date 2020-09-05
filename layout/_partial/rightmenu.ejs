@@ -36,13 +36,13 @@
         <li class='navigation'>
           <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fad fa-arrow-alt-left fa-fw'></i></a>
           <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fad fa-arrow-alt-right fa-fw'></i></a>
-          <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fad fa-alt-redo fa-fw'></i></a>
-          <a class='nav icon-only fix-cursor-default' href='/'><i class='fad fa-alt-home fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fad fa-redo-alt fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' href='/'><i class='fad fa-home fa-fw'></i></a>
         </li>
       <% } else { %>
         <li class='option'><a class='vlts-menu opt fix-cursor-default' onclick='history.back()'><i class='fad fa-arrow-alt-left fa-fw'></i><%- __('rightmenu.back') %></a></li>
         <li class='option'><a class='vlts-menu opt fix-cursor-default' onclick='history.forward()'><i class='fad fa-arrow-alt-right fa-fw'></i><%- __('rightmenu.forward') %></a></li>
-        <li class='option'><a class='vlts-menu opt fix-cursor-default' onclick='window.location.reload()'><i class='fad fa-alt-redo fa-fw'></i><%- __('rightmenu.reload') %></a></li>
+        <li class='option'><a class='vlts-menu opt fix-cursor-default' onclick='window.location.reload()'><i class='fad fa-redo-alt fa-fw'></i><%- __('rightmenu.reload') %></a></li>
       <% } %>
       <hr>
       <% theme.rightmenu.layout.forEach(function(item){ %>
