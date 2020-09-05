@@ -24,25 +24,25 @@
   <div id="rightmenu-wrapper">
     <ul class="list-v rightmenu" id="rightmenu-content">
       <li class='option'>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick="document.execCommand('copy')"><i class='fa fa-copy fa-fw'></i><%- __('rightmenu.copy_text') %></a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick="document.execCommand('copy')"><i class='fad fa-copy fa-fw'></i><%- __('rightmenu.copy_text') %></a>
         <hr id='hr-text'>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i><%- __('rightmenu.copy_link') %></a>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i><%- __('rightmenu.open_in_new_tab') %></a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fad fa-link fa-fw'></i><%- __('rightmenu.copy_link') %></a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fad fa-external-link-square-alt fa-fw'></i><%- __('rightmenu.open_in_new_tab') %></a>
         <hr id='hr-href'>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i><%- __('rightmenu.copy_image_src') %></a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fad fa-image fa-fw'></i><%- __('rightmenu.copy_image_src') %></a>
         <hr id='hr-src'>
       </li>
       <% if (theme.plugins.fontawesome) { %>
         <li class='navigation'>
-          <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
-          <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
-          <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
-          <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fad fa-arrow-alt-left fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fad fa-arrow-alt-right fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fad fa-alt-redo fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' href='/'><i class='fad fa-alt-home fa-fw'></i></a>
         </li>
       <% } else { %>
-        <li class='option'><a class='vlts-menu opt fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i><%- __('rightmenu.back') %></a></li>
-        <li class='option'><a class='vlts-menu opt fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i><%- __('rightmenu.forward') %></a></li>
-        <li class='option'><a class='vlts-menu opt fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i><%- __('rightmenu.reload') %></a></li>
+        <li class='option'><a class='vlts-menu opt fix-cursor-default' onclick='history.back()'><i class='fad fa-arrow-alt-left fa-fw'></i><%- __('rightmenu.back') %></a></li>
+        <li class='option'><a class='vlts-menu opt fix-cursor-default' onclick='history.forward()'><i class='fad fa-arrow-alt-right fa-fw'></i><%- __('rightmenu.forward') %></a></li>
+        <li class='option'><a class='vlts-menu opt fix-cursor-default' onclick='window.location.reload()'><i class='fad fa-alt-redo fa-fw'></i><%- __('rightmenu.reload') %></a></li>
       <% } %>
       <hr>
       <% theme.rightmenu.layout.forEach(function(item){ %>
@@ -53,17 +53,17 @@
             <p class='nav music-title fix-cursor-default'></p>
           </li>
           <li class='music ctrl'>
-            <a class='nav icon-only backward fix-cursor-default' onclick='aplayerBackward()'><i class='fa fa-step-backward fa-fw'></i></a>
-            <a class='nav icon-only toggle fix-cursor-default' onclick='aplayerToggle()'><i class='fa fa-play fa-fw'></i></a>
-            <a class='nav icon-only forward fix-cursor-default' onclick='aplayerForward()'><i class='fa fa-step-forward fa-fw'></i></a>
+            <a class='nav icon-only backward fix-cursor-default' onclick='aplayerBackward()'><i class='fad fa-step-backward fa-fw'></i></a>
+            <a class='nav icon-only toggle fix-cursor-default' onclick='aplayerToggle()'><i class='fad fa-play fa-fw'></i></a>
+            <a class='nav icon-only forward fix-cursor-default' onclick='aplayerForward()'><i class='fad fa-step-forward fa-fw'></i></a>
           </li>
           <li class='music volume'>
             <a class='nav volume'>
               <div class="aplayer-volume-bar-wrap">
                 <div class="aplayer-volume-bar fix-cursor-pointer">
                   <div class="aplayer-volume"></div>
-                  <i class='left fa fa-volume-off fa-fw'></i>
-                  <i class='right fa fa-volume-up fa-fw'></i>
+                  <i class='left fad fa-volume-off fa-fw'></i>
+                  <i class='right fad fa-volume-up fa-fw'></i>
                 </div>
               </div>
             </a>
