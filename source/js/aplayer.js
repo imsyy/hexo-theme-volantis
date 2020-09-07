@@ -177,7 +177,7 @@ function autoPlayMusic() {
 	setTimeout(function () {
 		if ($(window).width() > 500 && autoPlayMusic && APlayerController.autoPlay) {
 			let isplay = true;
-			$.message({title: "音乐通知",message: "即将自动播放，点击<a id='stopMusic' class='stopMusic fix-cursor-pointer'>停止播放</a>",type: 'warning'});
+			$.message({title: "音乐通知",message: "即将自动播放，点击  <a id='stopMusic' class='stopMusic fix-cursor-pointer'>停止播放</a>",type: 'warning'});
 			setTimeout(function () {
 				if (APlayerController.player == undefined) {
 					checkAPlayer();
@@ -190,7 +190,7 @@ function autoPlayMusic() {
 				isplay = false;
 				$(".c-message--close").click();
 				setTimeout(() => {
-					$.message({title: "音乐通知",time: 999999,message: "是否永久关闭音乐自动播放?  <a id='dontPlayMusic' class='stopMusic fix-cursor-pointer'><b>确认</b></a>",type: 'warning'});
+					$.message({title: "音乐通知",time: 999999,message: "是否暂时关闭音乐自动播放?  <a id='dontPlayMusic' class='stopMusic fix-cursor-pointer'><b>确认</b></a>",type: 'warning'});
 					$("#dontPlayMusic").click(function () {
 						var expires = 7 * 24 * 60 * 60 * 1000;
 						setCookie("autoPlayMusic", 'false', expires, '/');
