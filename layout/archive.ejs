@@ -1,8 +1,18 @@
-<%- partial('_pre') %>
+﻿<%- partial('_pre') %>
 <div class='l_main<%- page.sidebar == false ? ' no_sidebar' : '' %>'>
 	<% if (page.year || page.month) { %>
 		<%- partial('_partial/archive') %>
 	<% } else { %>
+	<article id="tag" class="post article white-box reveal <%- theme.custom_css.body.effect.join(' ') %>">
+	<h2>所有标签</h2>
+	<div class="all-tags">
+	  <% let tc = theme.sidebar.widget_library.tagcloud; %>
+	  <%- list_tags({}) %>
+	</div>
+	<script>colortag();</script>
+	<br>
+	<%- page.content %>
+</article>
 	  <article id="arc" class="post article white-box reveal <%- theme.custom_css.body.effect.join(' ') %>">
 			<% var year = -1, postid = -1; %>
 			<% site.posts.sort('date', -1).each(function(post) { %>
