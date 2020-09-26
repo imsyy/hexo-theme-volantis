@@ -1,15 +1,12 @@
 ############################### Volantis ###############################
 info:
   theme_name: Volantis # This is theme's name.
-  theme_version: '4.0.0-rc.4' # This is theme's version.
+  theme_version: '4.0.0' # This is theme's version.
   theme_docs: https://volantis.js.org/ # This is theme's URL.
   theme_repo: https://github.com/volantis-x/hexo-theme-volantis
   cdn:
     js:
     css:
-#
-# 从 v4 开始不再支持数据文件，全部的自定义设置请写在 _config.volantis.yml 中
-#
 ########################################################################
 
 ############################### Navigation Bar ############################### > start
@@ -132,7 +129,7 @@ article:
         icon: fas fa-bookmark
         max_count: 5
         # 设为空则不使用文章头图
-        placeholder_img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg
+        placeholder_img: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=
       # ----------------
       # 版权声明组件 (for layout: post)
       copyright:
@@ -217,6 +214,7 @@ comments:
     meta: nick,mail,link # valine comment header info
     requiredFields: ['nick','mail']
     enableQQ: true # Unstable avatar link
+    recordIP: false # Record commenter IP
     avatar: robohash # gravatar style https://valine.js.org/avatar
     pageSize: 10 # comment list page size
     lang: zh-cn
