@@ -1,3 +1,4 @@
+<%- partial('loadfunction') %>
 <!-- required -->
 <%- js(theme.plugins.jquery) %>
 <%- partial('../../_third-party/fancybox/script') %>
@@ -48,10 +49,6 @@
 
 <% if (theme.comments.service && theme.comments.service.length > 0) { %>
   <%- partial('../../_third-party/comments/' + theme.comments.service + '/script') %>
-<% } %>
-
-<% if (theme.plugins.darkmodejs.enable) { %>
-  <%- partial('darkmode') %>
 <% } %>
 
 <% if (theme.analytics.busuanzi) { %>
@@ -107,15 +104,17 @@
   <%- partial('counter') %>
 <% } %>
 
+<% if (theme.plugins.darkmodejs.enable) { %>
+  <%- partial('darkmode') %>
+<% } %>
+
+<%- partial('../../_third-party/analytics/script') %>
+
+<%- partial('toc') %>
+
 <!-- more -->
 <% if (config.import && config.import.script) { %>
   <%- partial('import') %>
 <% } %>
 
-<!-- 复制提醒 -->
-<script src="//lib.baomitu.com/layer/3.1.1/layer.js">
-</script>
-<script>document.body.oncopy = function()
-{layer.msg('复制成功 ！码字不易，转载请务必注明来源');};
-</script>
 
