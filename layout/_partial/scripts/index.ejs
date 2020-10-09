@@ -117,4 +117,11 @@
   <%- partial('import') %>
 <% } %>
 
+<!-- 复制提醒 -->
+<script src="//lib.baomitu.com/layer/3.1.1/layer.js">
+</script>
+<script>document.body.oncopy = function()
+{layer.msg('复制成功 ！码字不易，转载请务必注明来源');};
+</script>
+
 
