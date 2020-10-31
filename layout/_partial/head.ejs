@@ -148,4 +148,21 @@
 <!-- PWA -->
 <link rel="manifest" href="/manifest.json">
 
+<!-- 自动变灰 -->
+<script src="//cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    var myDate = new Date;
+    var mon = myDate.getMonth() + 1; //获取当前月
+    var date = myDate.getDate(); //获取当前日
+    var days=['4.4','5.12','7.7','9.9','9.18','12.13']; //在这里自定义日期
+    for (var day of days) {
+        var d=day.split('.');
+        if (mon == d[0] && date == d[1]) {
+            var gray='grayscale(100%)'; //自动变灰
+            $("html,body").css({"filter":'gray !important;',"filter":"progid:DXImageTransform.Microsoft.BasicImage(grayscale=1)","filter":gray,"-webkit-filter":gray,'-moz-filter':gray,'-ms-filter':gray,'-o-filter':gray});
+            break;
+        }
+    }
+</script>
+
 </head>
