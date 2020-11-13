@@ -1,0 +1,25 @@
+/* 公告中使用的 kbd 样式 */
+.widget.text .content kbd {
+  cursor: default;
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  line-height: 10px;
+  vertical-align: 0.05rem;
+  border: 1px solid #d1d5da;
+  border-radius: 6px;
+}
+
+/* 评论区美化 */
+#veditor {
+    background-image: url(https://cdn.jsdelivr.net/gh/drew233/cdn/20200409110727.webp);
+    background-size: 200px;
+    background-repeat: no-repeat;
+    background-position: 95% 30%;
+    background-color: rgba(255, 255, 255, 0);
+    resize: vertical
+}
+#veditor:focus {
+    background-position-y: 400px;
+    transition: all .2s ease-in-out 0s;
+}
