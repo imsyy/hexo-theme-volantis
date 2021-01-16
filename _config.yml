@@ -2,11 +2,11 @@
 # 仅限/source/js/中的JS文件
 # 默认使用 https://cdn.jsdelivr.net/npm/hexo-theme-volantis/source/js/ 的CDN压缩版本，注意版本号对应关系！！可以通过修改以下配置项覆盖
 # 开发者注意 use_cdn 设置为 false
-use_cdn: false
+use_cdn: true
 info:
   theme_name: Volantis # This is theme's name.
-  theme_version: '4.2.0' # This is theme's version.
-  theme_docs: https://volantis-x.github.io/ # This is theme's URL.
+  theme_version: '4.3.0' # This is theme's version.
+  theme_docs: https://volantis.js.org/ # This is theme's URL.
   theme_repo: https://github.com/volantis-x/hexo-theme-volantis
   cdn:
     js:
@@ -16,6 +16,7 @@ info:
 ########################################################################
 
 ############################### Navigation Bar ############################### > start
+# 注意事项：建议规范全站路径 URL 最后带一个 "/" 例如 "about/"
 navbar:
   visiable: auto # always, auto
   logo: # choose [img] or [icon + title]
@@ -53,7 +54,8 @@ cover:
     home: true
     archive: true
     others: false # can be written in front-matter 'cover: true'
-  background: https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg
+  background: https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture
+  # background: https://bing.ioliu.cn/v1/rand?w=1920&h=1200
   logo: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-Cover@3x.png
   title: 'Volantis'
   subtitle: ''
@@ -112,7 +114,7 @@ article:
   body:
     # 文章顶部信息
     # 从 meta_library 中取
-    top_meta: [author, category, date, counter]
+    top_meta: [author, category, date, counter] #启用评论数量需在此添加
     # ----------------
     # 文章页脚组件
     footer_widget:
@@ -135,7 +137,7 @@ article:
         icon: fas fa-bookmark
         max_count: 5
         # 设为空则不使用文章头图
-        placeholder_img: data:image/png;base64,666
+        placeholder_img: https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture
       # ----------------
       # 版权声明组件 (for layout: post)
       copyright:
@@ -156,7 +158,8 @@ article:
     bottom_meta: [updated, tags, share]
     # meta library
     meta_library:
-      # 默认文章作者（可在 front-matter 中覆盖）
+      # 默认文章作者（可在 _data/author.yaml 中增加其他作者，并在 front-matter 中设置）
+      # https://volantis.js.org/advanced-settings/#多人协同
       author:
         avatar:
         name: 请设置文章作者
@@ -178,8 +181,11 @@ article:
       counter:
         icon: fas fa-eye
         unit: '次浏览'
-      # 文章评论数量：只支持 valine
+      # 文章评论数量：支持 valine和waline
       valinecount:
+        icon: fas fa-comment-dots
+        desc: '' # 条评论
+      walinecount:
         icon: fas fa-comment-dots
         desc: '' # 条评论
       # 文章字数和阅读时长
@@ -208,24 +214,24 @@ article:
 comments:
   title: <i class='fas fa-comments'></i> 评论
   subtitle:
-  service: valine # valine, minivaline, disqus, gitalk, vssue, livere, isso, hashover, twikoo
+  service: valine # valine, twikoo, waline, minivaline, disqus, disqusjs, gitalk, vssue, livere, isso, hashover
   # Valine
   # https://valine.js.org/
   valine:
+    # js: https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js
+    path: # 全局评论地址 目前设置全局评论地址后visitor失效,这是valine的问题
+    placeholder: 快来评论吧~  # 评论占位提示
+    # 其他配置项按照yml格式继续填写即可 除了 [el path placeholder emojiCDN emojiMaps] 选项
     appId: # your appId
     appKey: # your appKey
-    # js: https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js
-    path: # 全局评论地址
-    placeholder: 快来评论吧~  # 评论占位提示
-    meta: nick,mail,link # valine comment header info
-    requiredFields: ['nick','mail']
+    meta: [nick,mail,link] # valine comment header info
+    requiredFields: [nick,mail]
     enableQQ: true # Unstable avatar link
     recordIP: false # Record commenter IP
     avatar: robohash # gravatar style https://valine.js.org/avatar
     pageSize: 10 # comment list page size
     lang: zh-cn
     highlight: true
-    visitor: true
     mathJax: false
   # MiniValine
   # https://github.com/MiniValine/MiniValine
@@ -233,10 +239,11 @@ comments:
     js: https://cdn.jsdelivr.net/npm/minivaline@latest
     path: # 全局评论地址
     placeholder: 快来评论吧~  # 全局评论占位提示
-    # 更多选项 https://minivaline.js.org/docs/cn/#/Options 按照yml格式继续填写即可 （除了 [el] [pathname] [placeholder] 选项）  emoticonUrl可参考 https://github.com/MiniValine/hexo-next-minivaline
-    # mode: xCss # DesertsP or xCss
-
-
+    # 更多选项 https://minivaline.js.org/docs/cn/#/Options 按照yml格式继续填写即可 （除了 [el path placeholder] 选项）
+    # emoticonUrl 等列表选项 可参考 https://github.com/MiniValine/hexo-next-minivaline
+    # 下面是一个例子：
+    backend: waline
+    serverURL: https://waline.vercel.app
   # Disqus
   # https://disqus.com
   disqus:
@@ -244,40 +251,68 @@ comments:
     # optional
     autoload: false
     path: # 全局评论地址
+  # DisqusJS
+  # https://github.com/SukkaW/DisqusJS
+  disqusjs:
+    path: # 全局评论地址
+    # 配置项按照yml格式继续填写即可 除了 [siteName url identifier] 选项
+    #shortname:
+    #api:
+    #apikey:
+    #admin:
+    #nesting:
   # Gitalk
   # https://gitalk.github.io/
   gitalk:
+    # 配置项按照yml格式继续填写即可 除了 [id distractionFreeMode] 选项
     clientID:
     clientSecret:
     repo:
     owner:
     admin: # []
     path: # 全局评论地址
-  # Vssue
+  # Vssue 暂不支持Pjax
   # https://vssue.js.org/zh/
   vssue:
     owner:
     repo:
     clientId:
     clientSecret:
-  # LiveRe
+  # LiveRe 暂不支持Pjax
   # https://www.livere.com
   livere:
     uid:
-  # Isso
+  # Isso 暂不支持Pjax
   # https://posativ.org/isso/
   isso:
     url: https://example.com/(path/)
     src: https://example.com/(path/)js/embed.min.js
-  # HashOver
+  # HashOver 暂不支持Pjax
   # https://www.barkdull.org/software/hashover
   hashover:
     src: https://example.com/(path/)comments.php
   # Twikoo
   # https://twikoo.js.org/
   twikoo:
-    js: #https://cdn.jsdelivr.net/npm/twikoo@0.3.0/dist/twikoo.all.min.js   (本地为twikoo v0.3.0版本)
+    js: https://cdn.jsdelivr.net/npm/twikoo@latest # 建议锁定版本
+    path: # 全局评论地址
+    # 其他配置项按照yml格式继续填写即可 除了 [el path] 选项
     envId: xxxxxxxxxxxxxxx # 腾讯云环境id
+  # Waline
+  # https://waline.js.org/
+  waline:
+    js: https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js
+    path: # 全局评论地址 目前设置全局评论地址后visitor失效,这是waline的问题
+    placeholder: 快来评论吧~  # 评论占位提示
+    imageHosting: https://7bu.top/api/upload # 图床api（默认使用去不图床）
+    # 其他配置项按照yml格式继续填写即可 除了 [el path placeholder uploadImage] 选项
+    meta: [nick,mail,link] # waline comment header info
+    requiredFields: [nick,mail]
+    serverURL: xxxxxxxxxxxxxxx # Waline 的服务端地址（必填） 测试用地址: https://waline-ruddy.vercel.app
+    avatar: robohash # gravatar style https://waline.js.org/client/basic.html#avatar
+    pageSize: 10 # 评论每页显示数量
+    lang: zh-CN
+
 ############################### Comments ############################### > end
 
 ############################### Sidebar ############################### > start
@@ -565,8 +600,35 @@ plugins:
     cacheBust: false     # When set to true, Pjax appends a timestamp  to skip the browser cache.
     animation: false # false, nprogress, circle
     banUrl:              # 被屏蔽的 url 地址将不启用 pjax 跳转，可以在控制台下使用 window.location.pathname 获取
-      # - /artitalk/     # artitalk 不支持 pjax
+      # - '/artitalk/'     # artitalk 不支持 pjax
+      # - '/bb/'           # bbtalk 不支持 pjax
 
+  # 从 issues 加载动态数据
+  # {% issues sites/timeline/friends | api=xxx | group=key:a,b,c %}
+  # 例如：
+  # {% issues sites | api=https://api.github.com/repos/volantis-x/examples/issues?sort=updated&state=open&page=1&per_page=100 | group=version:latest,v6,v5,v4,v3,v2,v1,v0 %}
+
+
+  # 暗黑模式 darkmode
+  # 样式：source/css/_plugins/dark.styl
+  # 开关按钮：在 navbar.menu 中添加：
+  # - name: 暗黑模式 # 可自定义
+  #   icon: fas fa-moon # 可自定义
+  #   toggle: darkmode
+  darkmodejs:
+    enable: #true
+
+  # 旧版 Internet Explorer 淘汰行动
+  # https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support
+  # 本主题不支持Internet Explorer的任何版本!!!
+  killOldVersionsOfIE:
+    enable: true
+
+  # 禁用JavaScript提示
+  # 本页面需要浏览器支持（启用）JavaScript
+  # 主题中的某些插件必须启用JavaScript才能正常工作，例如开启scrollreveal如果禁用JavaScript会导致卡片消失
+  killNoScript:
+    enable: true
 
   # Artitalk https://artitalk.js.org
   # 配置过程请参考：https://artitalk.js.org/doc.html
@@ -574,6 +636,7 @@ plugins:
   # 除appID和appKEY外均为选填项
   artitalk:
     # Set `layout: artitalk` to enable in page
+    # 配置项按照yml格式继续填写即可
     appId: ogP8qj3veMh0LFpFWMPOyF0X-MdYXbMMI # your appID
     appKey: nHXLd3N3Jgh460t2iRQKWAtr # your appKEY
     # serverURL:  #leancloud绑定的安全域名，使用国际版的话不需要填写
@@ -588,22 +651,18 @@ plugins:
     # color3: #说说字体颜色
     # cssUrl: #自定义css接口
 
-  # 从 issues 加载动态数据
-  # {% issues sites/timeline/friends | api=xxx | group=key:a,b,c %}
-  # 例如：
-  # {% issues sites | api=https://api.github.com/repos/volantis-x/examples/issues?sort=updated&state=open&page=1&per_page=100 | group=version:latest,v6,v5,v4,v3,v2,v1,v0 %}
-  issues:
-    enable: #true
-    js:
+  # BBtalk https://bb.js.org
+  bbtalk:
+    js: https://cdn.jsdelivr.net/npm/bbtalk@0.1.5/dist/bbtalk.min.js # BBtalk.js
+    appId: 0KzOX4vC7Jsk6vzUGNeEiUaI-gzGzoHsz # your appID
+    appKey: HwCiWuxfpvKiLm4teCUgTIba # your appKEY
+    serverURLs: https://bbapi.heson10.com # Request Api 域名
 
-  # 暗黑模式 darkmode
-  # 样式：source/css/_plugins/dark.styl
-  # 开关按钮：在 navbar.menu 中添加：
-  # - name: 暗黑模式 # 可自定义
-  #   icon: fas fa-moon # 可自定义
-  #   toggle: darkmode
-  darkmodejs:
+  # Tidio聊天功能
+  # https://www.tidio.com/
+  tidio:
     enable: #true
+    id: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ############################### Plugins ############################### > end
 

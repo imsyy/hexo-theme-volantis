@@ -18,14 +18,6 @@ if (theme.comments.service && theme.comments.service.length > 0) {
     }
   }
 }
-var enableValine = false;
-if (theme.comments.service == 'valine') {
-  enableValine = true;
-}
-var enableMiniValine = false;
-if (theme.comments.service == 'minivaline') {
-  enableMiniValine = true;
-}
 if (page && page.layout == 'post' && page.title) {
   ispage = true;
   postTitle = page.title;
@@ -35,7 +27,7 @@ if (page && page.layout == 'post' && page.title) {
   window.pdata={}
   pdata.ispage=<%=ispage%>;
   pdata.postTitle="<%=postTitle%>";
-  pdata.commentPath="<%=theme.commentPath%>";
+  pdata.commentPath="<%=commentPath%>";
   pdata.commentPlaceholder="<%=commentPlaceholder%>";
 
   var l_header=document.getElementById("l_header");
