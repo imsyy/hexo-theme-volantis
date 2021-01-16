@@ -1,4 +1,4 @@
-<head 本站基于 Hexo 搭建 | 主题采用 Volantis <%- theme.info.theme_version %> 版本'>
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/<%- theme.info.theme_version %>'>
   <meta charset="utf-8">
   <!-- SEO相关 -->
   <% if (page.robots) { %>
@@ -28,6 +28,11 @@
   <meta name="HandheldFriendly" content="True" >
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <% if (theme.use_cdn && theme.info.cdn && theme.info.cdn.css.first) { %>
+  <link rel="preload" href="<%- theme.info.cdn.css.first %>" as="style">
+  <% } else { %>
+  <link rel="preload" href="<%- url_for("/css/first.css") %>" as="style">
+  <% } %>
 
   <!-- 页面元数据 -->
   <%
@@ -111,7 +116,7 @@
   <% } %>
 
   <% if (theme.use_cdn && theme.info.cdn && theme.info.cdn.css.style) { %>
-  <link rel="stylesheet" href="<%- theme.info.cdn.css %>" media="print" onload="this.media='all';this.onload=null">
+  <link rel="stylesheet" href="<%- theme.info.cdn.css.style %>" media="print" onload="this.media='all';this.onload=null">
   <noscript><link rel="stylesheet" href="<%- theme.info.cdn.css.style %>"></noscript>
   <% } else { %>
   <link rel="stylesheet" href="<%- url_for("/css/style.css") %>" media="print" onload="this.media='all';this.onload=null">
@@ -120,81 +125,5 @@
 
   <script id="loadcss"></script>
 
-  <%- partial('../_third-party/killOldVersionsOfIE/script') %>
-
-  <!-- noscript -->
-    <noscript>
-        <style type="text/css">
-            #dialog {
-                background-color: #f4f4f4;
-                height: 100%;
-                width: 100%;
-                position: fixed !important;
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: 500;
-                display: none
-            }
-        </style>
-        <div id="dialog" style="display:block">
-            <div>
-                <center>
-                    <br><br><br><br><br>
-                    <p><b><font color="#444" style="font-size:30px"><i class="fad fa-exclamation-circle  fa-fw fa-4x"></i><br><br>抱歉，本站需要 JavaScript 以正常浏览</font></b></p>
-                    <br><br><br><br><br><br>
-                    <p>
-                        <font color="#717171" style="font-size:20px">
-                            <b>请检查您的浏览器是否禁用了 JavaScript</b><br>
-                            <b>若浏览器版本过低，请升级您的浏览器</b><br><br><br><br><br>
-                            <font color="#949494" style="font-size:16px">将于10秒后重新检测</font>
-                        </font>
-                </center></p>
-            </div>
-        </div>
-        <meta http-equiv="refresh" content="10">
-    </noscript>
-
-<!-- 新窗口打开 -->
-<base target="_blank">
-<!-- 定义字符集 -->
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<!-- 图标动画 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/font-awesome-animation.min.css">-->
-
-<!-- PWA 
-<link rel="manifest" href="/manifest.json">-->
-
-<!-- 自动变灰 -->
-<script src="//cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
-<script>
-    var myDate = new Date;
-    var mon = myDate.getMonth() + 1; //获取当前月
-    var date = myDate.getDate(); //获取当前日
-    var days=['4.4','5.12','7.7','9.9','9.18','12.13']; //在这里自定义日期
-    for (var day of days) {
-        var d=day.split('.');
-        if (mon == d[0] && date == d[1]) {
-            var gray='grayscale(100%)'; //自动变灰
-            $("html,body").css({"filter":'gray !important;',"filter":"progid:DXImageTransform.Microsoft.BasicImage(grayscale=1)","filter":gray,"-webkit-filter":gray,'-moz-filter':gray,'-ms-filter':gray,'-o-filter':gray});
-            break;
-        }
-    }
-</script>
-
-<!-- 百度统计 -->
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?9267c4f28b616921175e384bf7835a4a";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
-<!-- Aplayer -->
-<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
-
+  <%- partial('../_third-party/end-of-support/script') %>
 </head>
