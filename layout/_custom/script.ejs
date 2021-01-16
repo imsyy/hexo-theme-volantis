@@ -1,0 +1,43 @@
+<!-- 新窗口打开 -->
+<base target="_blank">
+
+<!-- 定义字符集 -->
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+<!-- 图标动画 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/font-awesome-animation.min.css">-->
+
+<!-- PWA 
+<link rel="manifest" href="/manifest.json">-->
+
+<!-- 自动变灰 -->
+<script src="//cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    var myDate = new Date;
+    var mon = myDate.getMonth() + 1; //获取当前月
+    var date = myDate.getDate(); //获取当前日
+    var days=['4.4','5.12','7.7','9.9','9.18','12.13']; //在这里自定义日期
+    for (var day of days) {
+        var d=day.split('.');
+        if (mon == d[0] && date == d[1]) {
+            var gray='grayscale(100%)'; //自动变灰
+            $("html,body").css({"filter":'gray !important;',"filter":"progid:DXImageTransform.Microsoft.BasicImage(grayscale=1)","filter":gray,"-webkit-filter":gray,'-moz-filter':gray,'-ms-filter':gray,'-o-filter':gray});
+            break;
+        }
+    }
+</script>
+
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9267c4f28b616921175e384bf7835a4a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- Aplayer -->
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
