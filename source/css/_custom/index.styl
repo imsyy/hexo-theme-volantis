@@ -10,7 +10,7 @@
   border-radius: 6px;
 }
 
-/* 评论区美化 
+/* Valine 评论区美化 
 #veditor {
     background-image: url(https://cdn.jsdelivr.net/gh/drew233/cdn/20200409110727.webp);
     background-size: 200px;
@@ -24,3 +24,22 @@
     transition: all .2s ease-in-out 0s;
 }
 */
+
+/* 底栏美化 高度调整 去除下划线 */
+footer.footer {
+    padding: 10px 10px 100px 10px;
+    overflow: hidden;
+}
+
+/* 标题文字美化 */
+article.md h2, article.md>h1 {
+    font-weight: 900;
+}
+
+.md h3, .md h4, .md h5, .md h6 {
+    font-weight: 600;
+}
+
+.md h1:before, .md h2:before {
+    margin-top: -60px;
+}
