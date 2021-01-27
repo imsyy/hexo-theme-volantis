@@ -1,18 +1,18 @@
 ############################### Volantis ###############################
-# 仅限/source/js/中的JS文件
-# 默认使用 https://cdn.jsdelivr.net/npm/hexo-theme-volantis/source/js/ 的CDN压缩版本，注意版本号对应关系！！可以通过修改以下配置项覆盖
+# use_cdn: /source/js/* 中的JS文件(JS Only)使用jsdelivr的min版本加速
+# 默认使用 https://cdn.jsdelivr.net/npm/hexo-theme-volantis@<%- theme.info.theme_version %>/source/js/*.min.js 的CDN压缩版本(min.js)，注意版本号对应关系！！可以通过修改以下配置项覆盖
 # 开发者注意 use_cdn 设置为 false
-use_cdn: true
+use_cdn: false
 info:
   theme_name: Volantis # This is theme's name.
-  theme_version: '4.3.0' # This is theme's version.
+  theme_version: '4.3.1' # This is theme's version.
   theme_docs: https://volantis.js.org/ # This is theme's URL.
   theme_repo: https://github.com/volantis-x/hexo-theme-volantis
   cdn:
-    js:
+    js: # https://cdn.jsdelivr.net/npm/hexo-theme-volantis@<%- theme.info.theme_version %>/source/js/app.min.js # 注意版本!!!
     css:
-      first:
-      style:
+      first: # /css/first.css (需自行替换CDN 首屏样式 cover navbar search )
+      style: # /css/style.css (需自行替换CDN 异步加载 Others...           )
 ########################################################################
 
 ############################### Navigation Bar ############################### > start
@@ -596,6 +596,7 @@ plugins:
     list_folded: true
   pjax:
     enable: true
+    cover: true          # 封面是否pjax处理 false：每次切换页面封面都重载，适合封面较少的情况 true：封面经过Pjax处理，适合封面较多的情况
     timeout: 5000        # The timeout in milliseconds for the XHR requests. Set to 0 to disable the timeout.
     cacheBust: false     # When set to true, Pjax appends a timestamp  to skip the browser cache.
     animation: false # false, nprogress, circle
@@ -616,7 +617,7 @@ plugins:
   #   icon: fas fa-moon # 可自定义
   #   toggle: darkmode
   darkmodejs:
-    enable: #true
+    enable: true
 
   # 旧版 Internet Explorer 淘汰行动
   # https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support
@@ -671,7 +672,7 @@ plugins:
 rightmenu:
   enable: #true
   # hr: 分割线, music: 音乐控制器
-  layout: [home, help, examples, contributors, hr, source_docs, source_theme, hr, print, hr, music]
+  layout: [home, help, examples, contributors, hr, source_docs, source_theme, hr, print, hr, dark_mode, hr, music]
   # 可选功能项
   print:
     name: 打印页面
@@ -698,6 +699,10 @@ rightmenu:
     name: 主题源码
     icon: fa fa-code-branch
     url: https://github.com/volantis-x/hexo-theme-volantis/
+  dark_mode:
+    name: Dark mode
+    icon: fas fa-moon
+    toggle: darkmode
 ############################### Rightmenu ############################### > end
 
 
